@@ -1,0 +1,16 @@
+
+
+<li>
+
+<a href="<%=comment_url(comment)%>"> <%= comment.content%></a>
+
+</li>
+<ul>
+
+<%comment.comments.each do |sub_comment| %>
+<%=render("comments/form", comment: sub_comment) %>
+<% end %>
+</ul>
+
+
+

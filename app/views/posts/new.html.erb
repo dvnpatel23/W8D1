@@ -1,0 +1,27 @@
+<h1>New Post</h1>
+
+<form action="<%=posts_url%>" method="post">
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+<label for="title">Title
+<input type="text" name="post[title]" >
+</label>
+<br>
+<label for="URL">URL
+<input type="text" name="post[url]" >
+</label>
+<br>
+<label for="content">Post
+<textarea name="post[content]"></textarea>
+</label>
+<br>
+
+<% Sub.all.each do |sub| %>
+  <label for=""> <%= sub.title %>
+  <input type="checkbox" name="post[sub_ids][]" value="<%=sub.id%>">
+  </label>
+<br>
+<% end %>
+
+<input type="submit" value="Create Post">
+</form>

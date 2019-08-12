@@ -1,0 +1,18 @@
+<h1>Subs</h1>
+
+<a href="<%=new_sub_url%>">Create a new Sub</a>
+
+<ul>
+<% Sub.all.each do |sub| %>
+  <li>
+  <span>
+    <a href="<%=sub_url(sub)%>"><%=sub.title%></a>
+    <form action="<%=sub_url(sub)%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+     <input type="submit" value="Delete Sub">
+     </form>
+     </span>
+  </li>
+<% end %>
+</ul>
